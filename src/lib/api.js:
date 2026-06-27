@@ -1,0 +1,34 @@
+// src/lib/api.js
+
+// Mock API layer for development and testing
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export async function fetchMetrics() {
+  await delay(200);
+  return {
+    revenue: 127500,
+    users: 1240,
+    churn: 3.2,
+    mrr: 42500,
+  };
+}
+
+export async function fetchChartData() {
+  await delay(200);
+  return {
+    monthly: [
+      { month: "Jan", revenue: 32000, users: 850 },
+      { month: "Feb", revenue: 38000, users: 920 },
+      { month: "Mar", revenue: 35000, users: 980 },
+      { month: "Apr", revenue: 42000, users: 1050 },
+      { month: "May", revenue: 45000, users: 1150 },
+      { month: "Jun", revenue: 48000, users: 1240 },
+    ],
+    byPlan: [
+      { plan: "Starter", users: 620, revenue: 18600 },
+      { plan: "Pro", users: 480, revenue: 38400 },
+      { plan: "Enterprise", users: 140, revenue: 70500 },
+    ],
+  };
+}
